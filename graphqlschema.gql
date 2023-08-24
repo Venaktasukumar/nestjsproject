@@ -1,0 +1,51 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreatePostInput {
+  postName: String!
+  postorder: String!
+}
+
+input CreateUserInputs {
+  fullname: String!
+  phonenumber: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createPost(createPostInput: CreatePostInput!, userid: String!): Post!
+  createUser(createUserInputs: CreateUserInputs!): User!
+  deletepostbyid(postid: String!): String!
+  deleteuser(userid: String!): String!
+}
+
+type Post {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  postid: String!
+  postname: String!
+  postorder: Int!
+  updatedAt: DateTime!
+  user: User!
+  userId: String!
+}
+
+type Query {
+  getallpost: [Post!]!
+  getalluser: [User!]!
+}
+
+type User {
+  createdAt: DateTime!
+  deletedAt: DateTime!
+  fullname: String!
+  phonenumber: String!
+  post: [Post!]
+  updatedAt: DateTime!
+  userid: String!
+}
